@@ -1,1 +1,53 @@
 # lab2
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+
+struct address
+{char ul[20];
+int nd;
+int nk;
+};
+
+struct anketa
+{char fam[20];
+char im[20];
+char ot[20];
+struct address ad[10];
+int pol;
+int voz;
+} ank[10];
+
+int main(int argc, char *argv[]) {
+    int i,n,d=0,j,k;
+    printf("Vvedite kolichestvo chelovek:");
+    scanf("%i",&n);
+    for(i=0;i<n;i++)
+{   
+    k=0;
+    printf("F.I.O cherez probel:");
+    scanf("%s %s %s",&ank[i].fam,&ank[i].im,&ank[i].ot);
+    printf("Vvedite adres doma [ulica dom kvartira]:");
+    scanf("%s %i %i",&ank[i].ad[i].ul,&ank[i].ad[i].nd,&ank[i].ad[i].nk);
+    if(i>0)
+    for(j=i-1;j>=0;j--)
+    {
+    if(strcmp(ank[i].ad[i].ul,ank[j].ad[j].ul)==0&&ank[i].ad[i].nd==ank[j].ad[j].nd)
+    {k++;
+    break;
+    }}
+    printf("Pol [0-woman,1-man]:");
+    scanf("%i",&ank[i].pol);
+    printf("Vozrast:");
+    scanf("%i",&ank[i].voz);
+    if(i>0&&k!=0)
+    {if(ank[i].voz>=1&&ank[i].voz<=5&&ank[j].voz>=1&&ank[j].voz<=5)
+    d++;
+    }
+}
+printf("Deti v vozraste ot 1 do 5 let v odnom dome:%i",d); 
+    getch();
+	return 0;
+}
